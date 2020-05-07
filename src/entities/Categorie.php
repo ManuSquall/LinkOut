@@ -13,16 +13,21 @@ class Categorie
     private $libelle;
 
     /**
-     * One Categorie has many offre. This is the inverse side.
+     * One Categorie has many offres. This is the inverse side.
      * @OneToMany(targetEntity="Offre", mappedBy="categorie")
      */
     private $offres;
     
     /**
-     * One Categorie has many demandeur. This is the inverse side.
+     * One Categorie has many demandeurs. This is the inverse side.
      * @OneToMany(targetEntity="Demandeur", mappedBy="categorie")
      */
     private $demandeurs;
+
+    public function __construct() {
+        $this->offres = new ArrayCollection();
+        $this->demandeurs = new ArrayCollection();
+    }
 
     
 

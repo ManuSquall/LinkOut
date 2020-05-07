@@ -28,14 +28,14 @@ class Entreprise
     private $nomCeo;
 
     /**
-     * Many entreprise have one type. This is the owning side.
-     * @ManyToOne(targetEntity="Type", inversedBy="entreprise")
+     * Many entreprises have one type. This is the owning side.
+     * @ManyToOne(targetEntity="Type", inversedBy="entreprises")
      * @JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
 
     /**
-     * One entreprise has many offre. This is the inverse side.
+     * One entreprise has many offres. This is the inverse side.
      * @OneToMany(targetEntity="Offre", mappedBy="entreprise")
      */
     private $offres;

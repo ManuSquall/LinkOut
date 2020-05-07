@@ -17,16 +17,16 @@ class Diplome
     private $etablissement;
 
      /**
-     * Many diplome have one cv. This is the owning side.
-     * @ManyToOne(targetEntity="Cv", inversedBy="diplome")
+     * Many diplomes have one cv. This is the owning side.
+     * @ManyToOne(targetEntity="Cv", inversedBy="diplomes")
      * @JoinColumn(name="cv_id", referencedColumnName="id")
      */
     private $cv;
     
     /**
-     * Many diplome have one typeDiplome. This is the owning side.
-     * @ManyToOne(targetEntity="TypeDiplome", inversedBy="diplome")
-     * @JoinColumn(name="typeDiplome_id", referencedColumnName="id")
+     * Many diplomes have one typeDiplome. This is the owning side.
+     * @ManyToOne(targetEntity="TypeDiplome", inversedBy="diplomes")
+     * @JoinColumn(name="typediplome_id", referencedColumnName="id")
      */
     private $typeDiplome;
 

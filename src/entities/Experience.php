@@ -20,8 +20,8 @@ class Experience
     private $description;
 
     /**
-     * Many experience have one cv. This is the owning side.
-     * @ManyToOne(targetEntity="Cv", inversedBy="experience")
+     * Many experiences have one cv. This is the owning side.
+     * @ManyToOne(targetEntity="Cv", inversedBy="experiences")
      * @JoinColumn(name="cv_id", referencedColumnName="id")
      */
     private $cv;

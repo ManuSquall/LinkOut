@@ -14,10 +14,14 @@ class Type
     private $libelle;
 
     /**
-     * One type has many entreprise. This is the inverse side.
+     * One type has many entreprises. This is the inverse side.
      * @OneToMany(targetEntity="Entreprise", mappedBy="type")
      */
     private $entreprises;
+
+    public function __construct() {
+        $this->entreprises = new ArrayCollection();
+    }
     
 
     /**

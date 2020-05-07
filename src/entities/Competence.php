@@ -14,8 +14,8 @@ class Competence
     private $libelle;
 
     /**
-     * Many competences have Many Cv.
-     * @ManyToMany(targetEntity="Cv", mappedBy="competence")
+     * Many competences have Many Cvs.
+     * @ManyToMany(targetEntity="Cv", mappedBy="competences")
      */
     private $cvs;
 

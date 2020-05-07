@@ -20,25 +20,28 @@ class Offre
     private $dateFin;
 
     /**
-     * Many Offre have one categorie. This is the owning side.
-     * @ManyToOne(targetEntity="Categorie", inversedBy="offre")
+     * Many Offres have one categorie. This is the owning side.
+     * @ManyToOne(targetEntity="Categorie", inversedBy="offres")
      * @JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $categorie;
     
     /**
      * Many Offre have one entreprise. This is the owning side.
-     * @ManyToOne(targetEntity="Entreprise", inversedBy="offre")
+     * @ManyToOne(targetEntity="Entreprise", inversedBy="offres")
      * @JoinColumn(name="entreprise_id", referencedColumnName="id")
      */
     private $entreprise;
 
     /**
-     * One offre has many reponse. This is the inverse side.
+     * One offre has many reponses. This is the inverse side.
      * @OneToMany(targetEntity="Reponse", mappedBy="offre")
      */
     private $reponses;
     
+    public function __construct() {
+        $this->reponses = new ArrayCollection();
+    }
 
 
 

@@ -14,10 +14,15 @@ class TypeDiplome
     private $libelle;
 
     /**
-     * One typeDilome has many diplome. This is the inverse side.
+     * One typeDiplome has many diplomes. This is the inverse side.
      * @OneToMany(targetEntity="Diplome", mappedBy="typeDiplome")
      */
     private $diplomes;
+
+
+    public function __construct() {
+        $this->diplomes = new ArrayCollection();
+    }
 
     
 

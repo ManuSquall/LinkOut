@@ -13,8 +13,8 @@ class Langue
     private $libelle;
 
     /**
-     * Many langues have Many Cv.
-     * @ManyToMany(targetEntity="Cv", mappedBy="langue")
+     * Many langues have Many Cvs.
+     * @ManyToMany(targetEntity="Cv", mappedBy="langues")
      */
     private $cvs;
 
@@ -58,6 +58,26 @@ class Langue
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get many langues have Many Cvs.
+     */ 
+    public function getCvs()
+    {
+        return $this->cvs;
+    }
+
+    /**
+     * Set many langues have Many Cvs.
+     *
+     * @return  self
+     */ 
+    public function setCvs($cvs)
+    {
+        $this->cvs = $cvs;
 
         return $this;
     }

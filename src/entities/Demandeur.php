@@ -27,14 +27,14 @@ class Demandeur
     private $mdp;
     
      /**
-     * One Demandeur has many reponse. This is the inverse side.
+     * One Demandeur has many reponses. This is the inverse side.
      * @OneToMany(targetEntity="Reponse", mappedBy="demandeur")
      */
     private $reponses;
 
     /**
-     * Many Demandeur have one categorie. This is the owning side.
-     * @ManyToOne(targetEntity="Categorie", inversedBy="demandeur")
+     * Many Demandeurs have one categorie. This is the owning side.
+     * @ManyToOne(targetEntity="Categorie", inversedBy="demandeurs")
      * @JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $categorie;

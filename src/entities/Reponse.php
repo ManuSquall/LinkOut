@@ -18,15 +18,15 @@ class Reponse
     private $dateReponse;
 
     /**
-     * Many reponse have one offre. This is the owning side.
-     * @ManyToOne(targetEntity="Offre", inversedBy="reponse")
+     * Many reponses have one offre. This is the owning side.
+     * @ManyToOne(targetEntity="Offre", inversedBy="reponses")
      * @JoinColumn(name="offre_id", referencedColumnName="id")
      */
     private $offre;
     
     /**
      * Many reponse have one demandeur. This is the owning side.
-     * @ManyToOne(targetEntity="Demandeur", inversedBy="reponse")
+     * @ManyToOne(targetEntity="Demandeur", inversedBy="reponses")
      * @JoinColumn(name="demandeur_id", referencedColumnName="id")
      */
     private $demandeur;

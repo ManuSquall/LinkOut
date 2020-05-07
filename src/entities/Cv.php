@@ -20,7 +20,7 @@ class Cv
     private $atouts;
 
     /**
-     * Many cv have Many competence.
+     * Many cvs have Many competences.
      * @ManyToMany(targetEntity="Competence", inversedBy="cvs")
      * @JoinTable(name="cvs_competences")
      */
@@ -28,7 +28,7 @@ class Cv
     
     
     /**
-     * Many cv have Many langue.
+     * Many cvs have Many langues.
      * @ManyToMany(targetEntity="Langue", inversedBy="cvs")
      * @JoinTable(name="cvs_langues")
      */
@@ -38,26 +38,28 @@ class Cv
     public function __construct() {
         $this->competences = new \Doctrine\Common\Collections\ArrayCollection();
         $this->langues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experiences = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->diplomes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     
 
 
     /**
-     * One Cv has One Demandeur.
+     * One cv has One Demandeur.
      * @OneToOne(targetEntity="Demandeur", inversedBy="cv")
      * @JoinColumn(name="demandeur_id", referencedColumnName="id")
      */
     private $demandeur;
 
     /**
-     * One Cv has many experience. This is the inverse side.
+     * One cv has many experiences. This is the inverse side.
      * @OneToMany(targetEntity="Experience", mappedBy="cv")
      */
     private $experiences;
     
     /**
-     * One Cv has many diplome. This is the inverse side.
+     * One cv has many diplomes. This is the inverse side.
      * @OneToMany(targetEntity="Diplome", mappedBy="cv")
      */
     private $diplomes;
