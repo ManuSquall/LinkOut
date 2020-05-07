@@ -18,10 +18,30 @@ class Cv
     private $divers;
     /** @Column(type="string") **/
     private $atouts;
-    /** @Column(type="string") **/
-    private $langues;
-    /** @Column(type="string") **/
+
+    /**
+     * Many cv have Many competence.
+     * @ManyToMany(targetEntity="Competence", inversedBy="cvs")
+     * @JoinTable(name="cvs_competences")
+     */
     private $competences;
+    
+    
+    /**
+     * Many cv have Many langue.
+     * @ManyToMany(targetEntity="Langue", inversedBy="cvs")
+     * @JoinTable(name="cvs_langues")
+     */
+    private $langues;
+
+
+    public function __construct() {
+        $this->competences = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->langues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
+
 
     /**
      * One Cv has One Demandeur.
@@ -145,46 +165,6 @@ class Cv
     }
 
     /**
-     * Get the value of langues
-     */ 
-    public function getLangues()
-    {
-        return $this->langues;
-    }
-
-    /**
-     * Set the value of langues
-     *
-     * @return  self
-     */ 
-    public function setLangues($langues)
-    {
-        $this->langues = $langues;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of competences
-     */ 
-    public function getCompetences()
-    {
-        return $this->competences;
-    }
-
-    /**
-     * Set the value of competences
-     *
-     * @return  self
-     */ 
-    public function setCompetences($competences)
-    {
-        $this->competences = $competences;
-
-        return $this;
-    }
-
-    /**
      * Get one Cv has One Demandeur.
      */ 
     public function getDemandeur()
@@ -240,6 +220,46 @@ class Cv
     public function setDiplomes($diplomes)
     {
         $this->diplomes = $diplomes;
+
+        return $this;
+    }
+
+    /**
+     * Get many cv have Many competence.
+     */ 
+    public function getCompetences()
+    {
+        return $this->competences;
+    }
+
+    /**
+     * Set many cv have Many competence.
+     *
+     * @return  self
+     */ 
+    public function setCompetences($competences)
+    {
+        $this->competences = $competences;
+
+        return $this;
+    }
+
+    /**
+     * Get many cv have Many langue.
+     */ 
+    public function getLangues()
+    {
+        return $this->langues;
+    }
+
+    /**
+     * Set many cv have Many langue.
+     *
+     * @return  self
+     */ 
+    public function setLangues($langues)
+    {
+        $this->langues = $langues;
 
         return $this;
     }
